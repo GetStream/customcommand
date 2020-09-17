@@ -75,7 +75,7 @@ channel.sendMessage(text: "/ticket my laptop stopped working");
 
 This will try to send a POST request to our custom_command_url endpoint with a JSON encoded body like:
 
-```json
+```javascript
 {
   "message": {
     "id": "gmoree-2b1909be-8b96-42c5-9c5b-01f84ea23330",
@@ -98,7 +98,7 @@ This will try to send a POST request to our custom_command_url endpoint with a J
 ##### Rewrite Message
 To handle this request we’ll use Express JS. We’ll start by simply rewriting the message text to return the argument that was passed onto the ticket command:
 
-```json
+```javascript
 ticketCmdHandler = (req, res) => {
     // the body of the message we will modify 
     // based on user interactions
@@ -116,7 +116,7 @@ This rewrites the message text and will be reflected in the frontend.
 ##### Actions
 In order to add some interactivity to our command, we’ll be using message attachment actions, to let the user confirm or cancel the support ticket request. 
 
-```json
+```javascript
 message.text = `creating ticket about "${message.args}"`;
 message.attachments = [
    {
@@ -146,7 +146,7 @@ The rewrite of the message text and attachment action will be reflected in the f
 ##### Form Data
 When a user interacts with one of the actions, the handler will be called again with an additional form_data attribute that will contain the chosen action:
 
-```json
+```javascript
 {
  "message": {
    ...

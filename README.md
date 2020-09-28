@@ -5,11 +5,11 @@ In this example, we implement a custom slash command that can be used to create 
 
 #### Setup
 ##### Application Settings
-First we set the custom_command_url in the application settings:
+First we set the custom_action_handler_url in the application settings:
 
 ```javascript
 await client.updateAppSettings({
-    custom_command_url: "https://example.com/{type}",
+    custom_action_handler_url: "https://example.com/{type}",
 });
 ```
 
